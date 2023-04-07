@@ -7,6 +7,8 @@ import Back from '../component/back/Back';
 import {useNavigation} from '@react-navigation/native';
 import LOGOSVG from '../../Infrastructure/assets/images/splashScreenLogo.svg';
 import ComingSoon from '../component/ComingSoon/ComingSoon';
+import TimeLine from '../../presentation/components/TimeLine/TimeLine';
+import {scale} from '../utils/screenUtility';
 const HomeStack = createStackNavigator();
 const HeaderLeft = props => {
   return (
@@ -41,7 +43,7 @@ const HomeNavigator = props => {
         <>
           <HomeStack.Screen
             name="Dashboard"
-            component={ComingSoon}
+            component={TimeLine}
             options={{
               headerStyle: {
                 borderBottomWidth: 1,
@@ -56,6 +58,76 @@ const HomeNavigator = props => {
                 </TouchableOpacity>
               ),
               // headerTitle: props => <HearderTitle {...props} />,
+            }}
+          />
+          <HomeStack.Screen
+            name="ComingSoon"
+            component={ComingSoon}
+            options={{
+              headerLeft: () => <Back />,
+              headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+              headerBackTitleVisible: false,
+              headerTitleStyle: {
+                fontSize: scale(16),
+                color: '#4D4F5C',
+                fontFamily: 'SourceSansPro-SemiBold',
+              },
+            }}
+          />
+          <HomeStack.Screen
+            name="Resources"
+            component={ComingSoon}
+            options={{
+              headerLeft: () => <Back />,
+              headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+              headerBackTitleVisible: false,
+              headerTitleStyle: {
+                fontSize: scale(16),
+                color: '#4D4F5C',
+                fontFamily: 'SourceSansPro-SemiBold',
+              },
+            }}
+          />
+          <HomeStack.Screen
+            name="Find University"
+            component={ComingSoon}
+            options={{
+              headerLeft: () => <Back />,
+              headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+              headerBackTitleVisible: false,
+              headerTitleStyle: {
+                fontSize: scale(16),
+                color: '#4D4F5C',
+                fontFamily: 'SourceSansPro-SemiBold',
+              },
+            }}
+          />
+          <HomeStack.Screen
+            name="Next Steps in your Journey"
+            component={ComingSoon}
+            options={{
+              headerLeft: () => <Back />,
+              headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+              headerBackTitleVisible: false,
+              headerTitleStyle: {
+                fontSize: scale(16),
+                color: '#4D4F5C',
+                fontFamily: 'SourceSansPro-SemiBold',
+              },
+            }}
+          />
+          <HomeStack.Screen
+            name="Student Visa Overview"
+            component={ComingSoon}
+            options={{
+              headerLeft: () => <Back />,
+              headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+              headerBackTitleVisible: false,
+              headerTitleStyle: {
+                fontSize: scale(16),
+                color: '#4D4F5C',
+                fontFamily: 'SourceSansPro-SemiBold',
+              },
             }}
           />
         </>
