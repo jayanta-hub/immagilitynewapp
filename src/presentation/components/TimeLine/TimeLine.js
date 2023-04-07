@@ -22,7 +22,8 @@ const TimeLineComponent = props => {
       })
     : '-';
   const onViewProfile = () => {
-    navigation.navigate('ComingSoon');
+    // navigation.navigate('ComingSoon');
+    navigation.navigate('My Account');
   };
   const renderaData = [
     {

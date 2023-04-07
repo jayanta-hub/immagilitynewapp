@@ -11,11 +11,11 @@ const ProfileHeader = props => {
     <View
       style={{
         ...styles.container,
-        backgroundColor: '#fff',
-        height: scale(80),
+        backgroundColor: props.accStatus ? '#EFFAFF' : '#fff',
+        height: props.accStatus ? scale(95) : scale(80),
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        {false ? (
+        {props?.profilePic !== '' ? (
           <View>
             <Image
               style={{
@@ -29,38 +29,60 @@ const ProfileHeader = props => {
             />
           </View>
         ) : (
-          <View>
-            <Avatar.Image
-              size={scale(50)}
-              source={require('../../assets/images/avatar.png')}
-            />
-          </View>
+          <Avatar.Image
+            size={scale(50)}
+            source={require('../../assets/images/avatar.png')}
+          />
         )}
 
         <View style={styles.profilePic}>
-          <MaterialIcons name="verified-user" size={20} color="#08C299" />
+          {props.accStatus ? (
+            <TouchableOpacity onPress={() => props.editPic()}>
+              <MaterialIcons name="edit" size={25} color="#08C299" />
+            </TouchableOpacity>
+          ) : (
+            <MaterialIcons name="verified-user" size={20} color="#08C299" />
+          )}
         </View>
         <View>
-          <View style={{marginLeft: 10, justifyContent: 'space-between'}}>
+          <View style={{marginLeft: 10}}>
             <Text style={styles.userName}>
               {props.name ? props.name : '--'}
             </Text>
             <Text style={styles.email}>
               {props.primaryEmail ? props.primaryEmail : '--'}
             </Text>
+
+            <Text
+              style={{
+                fontFamily: 'SourceSansPro-Regular',
+                fontSize: scale(11),
+                color:
+                  props?.getProfileStatus?.data?.profileCompletion !== '100%'
+                    ? '#FD747C'
+                    : '#08C299',
+              }}>
+              Completed (
+              {props?.getProfileStatus?.data?.profileCompletion
+                ? props?.getProfileStatus?.data?.profileCompletion
+                : '0%'}
+              )
+            </Text>
           </View>
         </View>
       </View>
-      <View style={{alignItems: 'center', right: scale(5)}}>
-        <TouchableOpacity
-          style={styles.editContainer}
-          onPress={() => {
-            // signOut();
-            props.onAction();
-          }}>
-          <MaterialIcons name="person-outline" size={25} color="#00A8DB" />
-        </TouchableOpacity>
-      </View>
+      {!props.accStatus ? (
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            style={styles.editContainer}
+            onPress={() => {
+              // signOut();
+              props.onAction();
+            }}>
+            <MaterialIcons name="person-outline" size={30} color="#00A8DB" />
+          </TouchableOpacity>
+        </View>
+      ) : null}
     </View>
   );
 };
