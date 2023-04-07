@@ -15,7 +15,7 @@ const ProfileHeader = props => {
         height: scale(80),
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        {props?.profilePic !== null ? (
+        {false ? (
           <View>
             <Image
               style={{
@@ -38,13 +38,7 @@ const ProfileHeader = props => {
         )}
 
         <View style={styles.profilePic}>
-          {props.EditProfilePic ? (
-            <TouchableOpacity onPress={() => props.editPic()}>
-              <MaterialIcons name="edit" size={25} color="#08C299" />
-            </TouchableOpacity>
-          ) : (
-            <MaterialIcons name="verified-user" size={20} color="#08C299" />
-          )}
+          <MaterialIcons name="verified-user" size={20} color="#08C299" />
         </View>
         <View>
           <View style={{marginLeft: 10, justifyContent: 'space-between'}}>
@@ -54,37 +48,19 @@ const ProfileHeader = props => {
             <Text style={styles.email}>
               {props.primaryEmail ? props.primaryEmail : '--'}
             </Text>
-
-            {/* <Text
-              style={{
-                fontFamily: 'SourceSansPro-Regular',
-                fontSize: scale(11),
-                color:
-                  props?.getProfileStatus?.data?.profileCompletion !== '100%'
-                    ? '#FD747C'
-                    : '#08C299',
-              }}>
-              Completed (
-              {props?.getProfileStatus?.data?.profileCompletion
-                ? props?.getProfileStatus?.data?.profileCompletion
-                : '0%'}
-              )
-            </Text> */}
           </View>
         </View>
       </View>
-      {!props.accStatus ? (
-        <View style={{alignItems: 'center', right: scale(5)}}>
-          <TouchableOpacity
-            style={styles.editContainer}
-            onPress={() => {
-              // signOut();
-              props.onAction();
-            }}>
-            <MaterialIcons name="person-outline" size={25} color="#00A8DB" />
-          </TouchableOpacity>
-        </View>
-      ) : null}
+      <View style={{alignItems: 'center', right: scale(5)}}>
+        <TouchableOpacity
+          style={styles.editContainer}
+          onPress={() => {
+            // signOut();
+            props.onAction();
+          }}>
+          <MaterialIcons name="person-outline" size={25} color="#00A8DB" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
