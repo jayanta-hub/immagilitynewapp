@@ -23,9 +23,7 @@ const ProfileHeader = props => {
                 height: scale(40),
                 borderRadius: scale(4),
               }}
-              source={{
-                uri: `data:image/png;base64,${props.profilePic}`,
-              }}
+              source={props.profilePic}
             />
           </View>
         ) : (
