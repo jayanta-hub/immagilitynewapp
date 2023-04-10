@@ -39,6 +39,7 @@ const TimeLineComponent = props => {
   const renderaData = TimeLineH1BDate;
 
   const renderItem = item => {
+    console.log('🚀 ~ file: TimeLine.js:42 ~ renderItem ~ item:', item);
     return (
       <>
         <TouchableOpacity

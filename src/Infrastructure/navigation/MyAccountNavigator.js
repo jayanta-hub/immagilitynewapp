@@ -12,6 +12,7 @@ import EditIcon from 'react-native-vector-icons/Octicons';
 import ComingSoon from '../component/ComingSoon/ComingSoon';
 import MyAccount from '../../presentation/components/MyAccount/MyAccount';
 import Back from '../component/back/Back';
+import PersonalDetailsEdit from '../../presentation/components/MyAccount/PersonalDetails/PersonalDetailsEdit';
 const HomeStack = createStackNavigator();
 
 const MyAccountHeaderLeft = props => {
@@ -144,7 +145,7 @@ const MyAccountNavigator = props => {
         <HomeStack.Screen
           name="PersonalDetailsComponent"
           component={ComingSoon}
-          // component={PersonalDetails}
+          // component={PersonalDetailsEdit}
           options={{
             title: 'Personal Details',
             headerShown: true,
