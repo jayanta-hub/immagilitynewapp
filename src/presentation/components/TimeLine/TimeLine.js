@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -13,7 +13,10 @@ import TimelineCard from '../../../Infrastructure/component/TimelineCards/Timeli
 import {useIsFocused} from '@react-navigation/native';
 import Loader from '../../../Infrastructure/component/Loader/Loader';
 import {connect} from 'react-redux';
-import {TimeLineDate} from '../../../Infrastructure/Data/TimeLineData';
+import {
+  TimeLineStudentDate,
+  TimeLineH1BDate,
+} from '../../../Infrastructure/Data/TimeLineData';
 import BackgroundImage from '../../../Infrastructure/assets/images/BackgroundImage.jpeg';
 const TimeLineComponent = props => {
   const [status, setStatus] = useState(false);
@@ -32,13 +35,17 @@ const TimeLineComponent = props => {
     // navigation.navigate('ComingSoon');
     navigation.navigate('My Account');
   };
-  const renderaData = TimeLineDate;
+  // const renderaData = TimeLineStudentDate;
+  const renderaData = TimeLineH1BDate;
+
   const renderItem = item => {
     return (
       <>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate(item.navigation);
+            navigation.navigate(item.navigation, {
+              title: item.title,
+            });
           }}
           key={item.id}>
           <TimelineCard

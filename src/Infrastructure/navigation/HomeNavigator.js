@@ -9,6 +9,7 @@ import LOGOSVG from '../../Infrastructure/assets/images/splashScreenLogo.svg';
 import ComingSoon from '../component/ComingSoon/ComingSoon';
 import TimeLine from '../../presentation/components/TimeLine/TimeLine';
 import {scale} from '../utils/screenUtility';
+import VisaOverView from '../../presentation/components/VisaOverView/VisaOverView';
 const HomeStack = createStackNavigator();
 const HeaderLeft = props => {
   return (
@@ -129,6 +130,21 @@ const HomeNavigator = props => {
                 fontFamily: 'SourceSansPro-SemiBold',
               },
             }}
+          />
+          <HomeStack.Screen
+            name="VisaOverView"
+            component={VisaOverView}
+            options={({route}) => ({
+              headerLeft: () => <Back />,
+              headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+              headerBackTitleVisible: false,
+              headerTitleStyle: {
+                fontSize: scale(16),
+                color: '#4D4F5C',
+                fontFamily: 'SourceSansPro-SemiBold',
+              },
+              title: route.params.title,
+            })}
           />
         </>
       </HomeStack.Navigator>
